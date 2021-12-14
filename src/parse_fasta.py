@@ -79,3 +79,6 @@ def map_reads(FASTA_1, FASTA_2):
             if index_list:
                 dict[sequences[0][s]].update({genomes[0][g]: index_list})
     return dict
+
+if __name__ == '__main__':
+    print('huhuuuu')
