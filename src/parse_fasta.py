@@ -48,16 +48,10 @@ def nucleotide_frequencies(strings):
             elif k == 'T' or k == 't':
                 t += 1
     total_sequences = a + c + g + t
-    a_frequence = str(round(a/total_sequences, 2))
-    c_frequence = str(round(c/total_sequences, 2))
-    g_frequence = str(round(g/total_sequences, 2))
-    t_frequence = str(round(t/total_sequences, 2))
-    print('A: ' + a_frequence)
-    print('C: ' + c_frequence)
-    print('G: ' + g_frequence)
-    print('T: ' + t_frequence)
-
-
+    print('A: ' + str(round(float(a)/float(total_sequences), 2)))
+    print('C: ' + str(round(float(c)/float(total_sequences), 2)))
+    print('G: ' + str(round(float(g)/float(total_sequences), 2)))
+    print('T: ' + str(round(float(t)/float(total_sequences), 2)))
 
 def map_reads(FASTA_1, FASTA_2):
 
@@ -81,4 +75,5 @@ def map_reads(FASTA_1, FASTA_2):
     return dict
 
 if __name__ == '__main__':
-    print('huhuuuu')
+    map_reads(r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/RNA-Seq/Test files/sequences.fasta",
+              r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/RNA-Seq/Test files/genome.fasta")
