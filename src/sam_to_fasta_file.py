@@ -17,5 +17,5 @@ def sam_to_fasta_file(path):
 if __name__ == '__main__':
     sam_to_fasta_file('Aligned.out.sam')
     dict = parse_fasta.map_reads('fasta_converted_from_sam_file.fasta',
-                                 r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/RNA-Seq/Test files/genome.fasta")
+                                 r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/genome.fasta")
     print(dict)

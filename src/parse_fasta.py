@@ -1,5 +1,6 @@
 import re
 
+
 def parse_fasta(path):
     with open(path) as fh:
         data = fh.readlines()
@@ -75,5 +76,5 @@ def map_reads(FASTA_1, FASTA_2):
     return dict
 
 if __name__ == '__main__':
-    map_reads(r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/RNA-Seq/Test files/sequences.fasta",
-              r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/RNA-Seq/Test files/genome.fasta")
+    map_reads(r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/sequences.fasta",
+              r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/genome.fasta")
