@@ -1,10 +1,14 @@
 import re
 
 
-# Sheet 1
-# Ex 1.1:
-# input: fasta file, output: list of headers and list of sequences
 def parse_fasta(path):
+    # type: (file) -> (list[str], list[str])
+    """ Sheet 1, exercise 1.1: function reads fasta file and sorts sequences headers and actual sequence
+        Args:
+            path: fasta file
+        Returns:
+            two lists - first: headers, second: actual sequences
+    """
     with open(path) as fh:
         data = fh.readlines()
     headers = []
@@ -24,9 +28,14 @@ def parse_fasta(path):
     return headers, sequences
 
 
-# Ex 1.2:
-# input: list of strings, output: list of strings but only with dna-letters
 def discard_ambiguous_seqs(strings):
+    # type: (list[str]) -> (list[str])
+    """ Sheet 1, exercise 1.2: function sorts not-dna-letter-strings out and replaces it with a space
+            Args:
+                strings: list of strings
+            Returns:
+                list of strings that only contains dna-letters
+    """
     not_dna = []
     dna_letters = ['A', 'a', 'C', 'c', 'G', 'g', 'T', 't']
     for s in strings:
@@ -40,9 +49,13 @@ def discard_ambiguous_seqs(strings):
     return strings
 
 
-# Ex 1.3:
-# input: list of strings, output: prints frequency of each dna-letter
 def nucleotide_frequencies(strings):
+    # type: (list[str]) -> None
+    """ Sheet 1, exercise 1.3: function counts total amount of each dna-letter and divides it with the total amount of
+    letters to calculate the frequency to be printed out.
+            Args:
+                strings: list of strings
+    """
     a = 0
     c = 0
     g = 0
@@ -64,12 +77,18 @@ def nucleotide_frequencies(strings):
     print('T: ' + str(round(float(t) / float(total_sequences), 2)))
 
 
-# Ex 1.4:
-# input: two fasta files, first -> short read sequences, second -> containing reference sequences
-# output: dictionary of dictionaries, where the outer dictionary uses the names of query sequences as its keys, and the
-# inner dictionary uses reference sequence names as keys and a list of 1-based indices indicating at which position
-# (counting from left to right) in the reference sequence the query sequence occurs
 def map_reads(FASTA_1, FASTA_2):
+    # type: (file, file) -> dict
+    """ Sheet 1, exercise 1.4: function runs previous functions, uses the data to create a dictionary of dictionaries,
+    where the outer dictionary uses the names of query sequences as its keys, and the inner dictionary uses reference
+    sequence names as keys and a list of 1-based indices indicating at which position (counting from left to right) in
+    the reference sequence the query sequence occurs
+            Args:
+                FASTA_1: fasta file with short read sequences
+                FASTA_2: fasta file with containing reference sequences
+            Returns:
+                dictionary
+    """
     sequences = parse_fasta(FASTA_1)
 
     genomes = parse_fasta(FASTA_2)
@@ -90,9 +109,6 @@ def map_reads(FASTA_1, FASTA_2):
     return dict
 
 
-# local main method
-# input: two fasta files
-# output: prints frequency of dna-letters
 if __name__ == '__main__':
     map_reads(r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/sequences.fasta",
               r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/genome.fasta")
