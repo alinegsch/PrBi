@@ -4,7 +4,7 @@
 
 It's my first time programming with Python and first own project - tried my best to solve the exercises.
 
-Unfortunately I couldn't figure out how to handle the path that it works on any computer - directories need to be changed to run the programm.
+Unfortunately I couldn't figure out how to handle the path (part of sheet 1) that it works on any computer - directories need to be changed to run the programm. Also had trouble installing flake8 (part of sheet 3). Decited to skip these parts and the optional exercises  and might try working on it after my other exames.
 
 This project has
 - a directory **/RNA-Seq** that contains the three exercise sheets and information from lectures, a subdirectory **/RNA-Seq/Test files** that contains given example files which are used in the exercises
