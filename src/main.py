@@ -1,6 +1,8 @@
 import parse_fasta
 import sam_to_fasta_file
 
+# this method starts the tasks for the whole exercise (1.4 and 2.2 to be precise)
+
 if __name__ == '__main__':
     print(parse_fasta.map_reads(
         r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/sequences.fasta",

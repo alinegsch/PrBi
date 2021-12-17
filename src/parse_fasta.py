@@ -1,6 +1,9 @@
 import re
 
 
+# Sheet 1
+# Ex 1.1:
+# input: fasta file, output: list of headers and list of sequences
 def parse_fasta(path):
     with open(path) as fh:
         data = fh.readlines()
@@ -20,6 +23,9 @@ def parse_fasta(path):
     sequences.pop(0)
     return headers, sequences
 
+
+# Ex 1.2:
+# input: list of strings, output: list of strings but only with dna-letters
 def discard_ambiguous_seqs(strings):
     not_dna = []
     dna_letters = ['A', 'a', 'C', 'c', 'G', 'g', 'T', 't']
@@ -33,6 +39,9 @@ def discard_ambiguous_seqs(strings):
         strings[i] = " "
     return strings
 
+
+# Ex 1.3:
+# input: list of strings, output: prints frequency of each dna-letter
 def nucleotide_frequencies(strings):
     a = 0
     c = 0
@@ -49,13 +58,18 @@ def nucleotide_frequencies(strings):
             elif k == 'T' or k == 't':
                 t += 1
     total_sequences = a + c + g + t
-    print('A: ' + str(round(float(a)/float(total_sequences), 2)))
-    print('C: ' + str(round(float(c)/float(total_sequences), 2)))
-    print('G: ' + str(round(float(g)/float(total_sequences), 2)))
-    print('T: ' + str(round(float(t)/float(total_sequences), 2)))
+    print('A: ' + str(round(float(a) / float(total_sequences), 2)))
+    print('C: ' + str(round(float(c) / float(total_sequences), 2)))
+    print('G: ' + str(round(float(g) / float(total_sequences), 2)))
+    print('T: ' + str(round(float(t) / float(total_sequences), 2)))
 
+
+# Ex 1.4:
+# input: two fasta files, first -> short read sequences, second -> containing reference sequences
+# output: dictionary of dictionaries, where the outer dictionary uses the names of query sequences as its keys, and the
+# inner dictionary uses reference sequence names as keys and a list of 1-based indices indicating at which position
+# (counting from left to right) in the reference sequence the query sequence occurs
 def map_reads(FASTA_1, FASTA_2):
-
     sequences = parse_fasta(FASTA_1)
 
     genomes = parse_fasta(FASTA_2)
@@ -75,6 +89,10 @@ def map_reads(FASTA_1, FASTA_2):
                 dict[sequences[0][s]].update({genomes[0][g]: index_list})
     return dict
 
+
+# local main method
+# input: two fasta files
+# output: prints frequency of dna-letters
 if __name__ == '__main__':
     map_reads(r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/sequences.fasta",
               r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/genome.fasta")

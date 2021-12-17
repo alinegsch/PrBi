@@ -1,6 +1,9 @@
 import parse_fasta
 
 
+# Sheet 2
+# Ex 2.2:
+# input: sam file, output: fasta file
 def sam_to_fasta_file(path):
     converted_fasta = 'fasta_converted_from_sam_file.fasta'
     with open(converted_fasta, 'w') as out:
@@ -14,6 +17,9 @@ def sam_to_fasta_file(path):
                     out.write(sam_split[9] + "\n")
 
 
+# local main method
+# changes fasta file to sam file (from given exercise)
+# takes this file and applies on function from Sheet 1
 if __name__ == '__main__':
     sam_to_fasta_file('Aligned.out.sam')
     dict = parse_fasta.map_reads('fasta_converted_from_sam_file.fasta',
