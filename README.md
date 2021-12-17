@@ -2,8 +2,8 @@
 
 **Exercises from programming in bioinformatics lecture about RNA-Sequencing.**
 
-It's my first time programming with Python and first own project.
-Tried my best to solve the exercises, unfortunately I couldn't figure out how to handle the path that it works on any computer - directories need to be changed to run the programm.
+It's my first time programming with Python and first own project - tried my best to solve the exercises.
+Unfortunately I couldn't figure out how to handle the path that it works on any computer - directories need to be changed to run the programm.
 
 In this project there is
 - a directory **/RNA-Seq** that contains given example files which are used in the exercises and the three exercise sheets
