@@ -1,4 +1,4 @@
-import parse_fasta
+from src import parse_fasta
 
 
 def sam_to_fasta_file(path):
@@ -17,10 +17,3 @@ def sam_to_fasta_file(path):
                 if sam_split[9][0] == 'A' or sam_split[9][0] == 'C' or sam_split[9][0] == 'G' or sam_split[9][0] == 'T':
                     out.write(">" + sam_split[0] + "\n")
                     out.write(sam_split[9] + "\n")
-
-
-if __name__ == '__main__':
-    sam_to_fasta_file('Aligned.out.sam')
-    dict = parse_fasta.map_reads('fasta_converted_from_sam_file.fasta',
-                                 r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/genome.fasta")
-    print(dict)

@@ -1,11 +1,13 @@
-from parse_fasta import parse_fasta, discard_ambiguous_seqs, nucleotide_frequencies, map_reads
+from pathlib import Path
+
+from src.parse_fasta import parse_fasta, discard_ambiguous_seqs, nucleotide_frequencies, map_reads
 
 
 def test_parse_fasta():
     """ test for funtion parse_fasta()
     tests if it returns right headers
     """
-    arr = parse_fasta(r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/genome.fasta")
+    arr = parse_fasta(str(Path(__file__).parents[0] / "test_files/genome.fasta"))
     assert arr[0][0] == 'chr1'
     assert arr[0][1] == 'chr2'
     assert arr[0][2] == 'chr3'
@@ -36,17 +38,13 @@ def test_map_reads():
     """ test for funtion map_reads()
     tests if function returns correct index of the position of the substring
     """
-    dic = map_reads(r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/sequences.fasta",
-                    r"/Users/Aline/Desktop/21HS/21HS PrBi/PrBi Alexander Kanitz/PrBi/RNA-Seq/Test files/genome.fasta")
+    dic = map_reads(
+        str(Path(__file__).parents[0] / "test_files/sequences.fasta"),
+        str(Path(__file__).parents[0] / "test_files/genome.fasta"),
+    )
     assert dic['sequence1']['chr1'] == [759]
     assert dic['sequence2']['chr2'] == [1422]
     assert dic['sequence4']['chr2'] == [1039]
     assert dic['sequence4']['chr3'] == [1422]
     assert dic['sequence4']['chr4'] == [1455]
 
-
-if __name__ == '__main__':
-    test_parse_fasta()
-    test_discard_ambiguous_seqs()
-    test_nucleotide_frequencies()
-    test_map_reads()
