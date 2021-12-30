@@ -133,3 +133,7 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+## Custom
+.idea/
+fasta_converted_from_sam_file.fasta
